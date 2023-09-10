@@ -1,0 +1,57 @@
+
+:root{
+    --primary-white : #fff;
+    --primary-orange: #ff8800;
+    --primary-dark:rgba(255,255,255,0);
+}
+
+/*------------- logo -------------------*/
+.logo{
+       width: 3.25rem;
+}
+
+/*----------------- menu Link -----------*/
+nav a.nav-link{
+    /* font-weight: 500; */
+    letter-spacing: 0.0375rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+nav ul li {
+    text-transform: uppercase;
+
+}
+
+nav ul{
+    margin-left: 5%;
+}
+
+.navbar-nav > li > a{
+    color: var(--primary-white) !important;
+    margin-left: 0.7rem;
+
+    border-top:0.1878rem solid var(--primary-dark) ;
+}
+
+.container{
+    justify-content: end;
+}
+
+.navbar-brand{
+    width: 17.25rem;
+    padding: 0 !important;
+    height: 3.25rem !important;
+}
+
+.navbar-toggler{
+    background-color: #fff;
+}
+
+.navbar-nav >li >a.active, .navbar-nav>li>a:focus{
+    border-top:0.1878rem solid var(--primary-orange) ;
+}
+
+.navbar-nav > li > a:hover{
+    border-top:0.1878rem solid var(--primary-orange) ;
+}
