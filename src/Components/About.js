@@ -11,6 +11,3 @@ function About() {
 }
 
 export default About
-<>
-<h1>TThis is all about me</h1>
-</>
