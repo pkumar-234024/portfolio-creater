@@ -1,23 +1,39 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+Web/node_modules
+Web/.pnp
+Web/.pnp.js
 
 # testing
-/coverage
+Web/coverage
 
 # production
-/build
+Web/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+Web/.DS_Store
+Web/.env.local
+Web/.env.development.local
+Web/.env.test.local
+Web/.env.production.local
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/PortfolioApi/src/PortfolioApi.Core/bin
+/PortfolioApi/src/PortfolioApi.Core/obj
+/PortfolioApi/src/PortfolioApi.Infrastructure/bin
+/PortfolioApi/src/PortfolioApi.Infrastructure/obj
+/PortfolioApi/src/PortfolioApi.SharedKernel/bin
+/PortfolioApi/src/PortfolioApi.SharedKernel/obj
+/PortfolioApi/src/PortfolioApi.Web/bin
+/PortfolioApi/src/PortfolioApi.Web/obj
+/PortfolioApi/tests/PortfolioApi.FunctionalTests/bin
+/PortfolioApi/tests/PortfolioApi.FunctionalTests/obj
+/PortfolioApi/tests/PortfolioApi.IntegrationTests/bin
+/PortfolioApi/tests/PortfolioApi.IntegrationTests/obj
+/PortfolioApi/tests/PortfolioApi.UnitTests/bin
+/PortfolioApi/tests/PortfolioApi.UnitTests/obj
+/PortfolioApi/.vs

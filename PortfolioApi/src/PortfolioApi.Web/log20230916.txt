@@ -1,0 +1,682 @@
+2023-09-16 00:22:29.302 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 00:22:31.207 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:22:31.607 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-09-16 00:22:31.731 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Projects" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Projects" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Priority" INTEGER NOT NULL
+);
+2023-09-16 00:22:31.731 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ToDoItems" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_ToDoItems" PRIMARY KEY AUTOINCREMENT,
+    "Title" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "IsDone" INTEGER NOT NULL,
+    "ProjectId" INTEGER NULL,
+    CONSTRAINT "FK_ToDoItems_Projects_ProjectId" FOREIGN KEY ("ProjectId") REFERENCES "Projects" ("Id")
+);
+2023-09-16 00:22:31.731 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ToDoItems_ProjectId" ON "ToDoItems" ("ProjectId");
+2023-09-16 00:22:31.782 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:22:32.053 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-09-16 00:22:32.100 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2023-09-16 00:22:32.104 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Description", "t"."IsDone", "t"."ProjectId", "t"."Title"
+FROM "ToDoItems" AS "t"
+2023-09-16 00:22:32.380 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 12), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Projects" ("Name", "Priority")
+VALUES (@p0, @p1);
+SELECT "Id"
+FROM "Projects"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2023-09-16 00:22:32.424 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@p2='?' (Size = 31), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 18)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p2, @p3, @p4, @p5);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2023-09-16 00:22:32.426 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 81), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2023-09-16 00:22:32.427 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 59), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2023-09-16 00:22:32.715 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 00:22:32.715 +05:30 [INF] Hosting environment: Development
+2023-09-16 00:22:32.715 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 00:22:32.801 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-09-16 00:22:32.862 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 00:22:32.897 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web)'
+2023-09-16 00:22:32.905 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PortfolioApi.Web.Controllers.HomeController (PortfolioApi.Web).
+2023-09-16 00:22:32.915 +05:30 [INF] Executing ViewResult, running view Index.
+2023-09-16 00:22:33.377 +05:30 [INF] Executed ViewResult - view Index executed in 462.9454ms.
+2023-09-16 00:22:33.383 +05:30 [INF] Executed action PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web) in 477.6118ms
+2023-09-16 00:22:33.384 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web)'
+2023-09-16 00:22:33.468 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.css - -
+2023-09-16 00:22:33.477 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.js - -
+2023-09-16 00:22:33.486 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.js - -
+2023-09-16 00:22:33.487 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:22:33.500 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 700.9877ms
+2023-09-16 00:22:33.504 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 16.7066ms
+2023-09-16 00:22:33.532 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:22:33.565 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+2023-09-16 00:22:33.565 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\wwwroot\lib\jquery\dist\jquery.js'
+2023-09-16 00:22:33.565 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+2023-09-16 00:22:33.566 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.js - - - 200 72084 application/javascript 80.1327ms
+2023-09-16 00:22:33.567 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.css - - - 200 152767 text/css 98.9895ms
+2023-09-16 00:22:33.570 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.js - - - 200 278292 application/javascript 93.6785ms
+2023-09-16 00:22:33.587 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.0518ms
+2023-09-16 00:22:40.335 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - -
+2023-09-16 00:22:40.343 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - - - 301 - - 7.2320ms
+2023-09-16 00:22:40.349 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 00:22:40.453 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 103.6998ms
+2023-09-16 00:22:40.497 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:22:40.500 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:22:40.501 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 6.1037ms
+2023-09-16 00:22:40.508 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 8.2071ms
+2023-09-16 00:22:40.639 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 00:22:40.799 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 160.4174ms
+2023-09-16 00:22:50.331 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Projects - -
+2023-09-16 00:22:50.332 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web)'
+2023-09-16 00:22:50.339 +05:30 [INF] Route matched with {action = "List", controller = "Projects", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List() on controller PortfolioApi.Web.Api.ProjectsController (PortfolioApi.Web).
+2023-09-16 00:22:50.401 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:22:50.419 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2023-09-16 00:22:50.433 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioApi.Web.ApiModels.ProjectDTO, PortfolioApi.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-16 00:22:50.673 +05:30 [INF] Executed action PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web) in 333.3192ms
+2023-09-16 00:22:50.673 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web)'
+2023-09-16 00:22:50.678 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Projects - - - 200 43 application/json;+charset=utf-8 347.2090ms
+2023-09-16 00:26:44.402 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:26:44.609 +05:30 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-09-16 00:26:44.636 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:26:44.981 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-09-16 00:26:45.081 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 00:26:45.081 +05:30 [INF] Hosting environment: Development
+2023-09-16 00:26:45.081 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 00:26:45.125 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-09-16 00:26:45.202 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 00:26:45.209 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.DependencyResolutionException: An exception was thrown while activating Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.
+ ---> Autofac.Core.DependencyResolutionException: None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider apiDescriptionsProvider' of constructor 'Void .ctor(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorOptions, Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider, Swashbuckle.AspNetCore.SwaggerGen.ISchemaGenerator)'.
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.GetAllBindings(ConstructorBinder[] availableConstructors, IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.ActivateInstance(IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.<ConfigurePipeline>b__11_0(ResolveRequestContext ctxt, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.DisposalTrackingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   --- End of inner exception stack trace ---
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.SharingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.CircularDependencyDetectorMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, ResolveRequest request)
+   at Autofac.Core.Resolving.ResolveOperation.ExecuteOperation(ResolveRequest request)
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance)
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method145(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.CookiePolicy.CookiePolicyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-16 00:26:45.483 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 500 - text/html;+charset=utf-8 361.7575ms
+2023-09-16 00:26:45.490 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:26:45.490 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:26:45.509 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 18.8829ms
+2023-09-16 00:26:45.525 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.6507ms
+2023-09-16 00:26:54.185 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 00:26:54.193 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.DependencyResolutionException: An exception was thrown while activating Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.
+ ---> Autofac.Core.DependencyResolutionException: None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider apiDescriptionsProvider' of constructor 'Void .ctor(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorOptions, Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider, Swashbuckle.AspNetCore.SwaggerGen.ISchemaGenerator)'.
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.GetAllBindings(ConstructorBinder[] availableConstructors, IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.ActivateInstance(IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.<ConfigurePipeline>b__11_0(ResolveRequestContext ctxt, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.DisposalTrackingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   --- End of inner exception stack trace ---
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.SharingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.CircularDependencyDetectorMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, ResolveRequest request)
+   at Autofac.Core.Resolving.ResolveOperation.ExecuteOperation(ResolveRequest request)
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance)
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method145(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.CookiePolicy.CookiePolicyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.TryServeStaticFile(HttpContext context, String contentType, PathString subPath)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-16 00:26:54.230 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 500 - text/html;+charset=utf-8 44.3729ms
+2023-09-16 00:26:54.261 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:26:54.261 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:26:54.264 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 2.3241ms
+2023-09-16 00:26:54.278 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 16.7865ms
+2023-09-16 00:26:56.572 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 00:26:56.574 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Autofac.Core.DependencyResolutionException: An exception was thrown while activating Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.
+ ---> Autofac.Core.DependencyResolutionException: None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider apiDescriptionsProvider' of constructor 'Void .ctor(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorOptions, Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider, Swashbuckle.AspNetCore.SwaggerGen.ISchemaGenerator)'.
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.GetAllBindings(ConstructorBinder[] availableConstructors, IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.ActivateInstance(IComponentContext context, IEnumerable`1 parameters)
+   at Autofac.Core.Activators.Reflection.ReflectionActivator.<ConfigurePipeline>b__11_0(ResolveRequestContext ctxt, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.DisposalTrackingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   --- End of inner exception stack trace ---
+   at Autofac.Core.Resolving.Middleware.ActivatorErrorHandlingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.SharingMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.Middleware.CircularDependencyDetectorMiddleware.Execute(ResolveRequestContext context, Action`1 next)
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, ResolveRequest request)
+   at Autofac.Core.Resolving.ResolveOperation.ExecuteOperation(ResolveRequest request)
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance)
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method145(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.CookiePolicy.CookiePolicyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.TryServeStaticFile(HttpContext context, String contentType, PathString subPath)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-16 00:26:56.591 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 500 - text/html;+charset=utf-8 19.7399ms
+2023-09-16 00:26:56.615 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:26:56.615 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:26:56.616 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 1.4935ms
+2023-09-16 00:26:56.634 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.3100ms
+2023-09-16 00:30:24.500 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 00:30:25.713 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:30:25.861 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-09-16 00:30:25.884 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:30:26.188 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-09-16 00:30:26.353 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 00:30:26.353 +05:30 [INF] Hosting environment: Development
+2023-09-16 00:30:26.353 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 00:30:26.400 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-09-16 00:30:26.554 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 00:30:26.559 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web)'
+2023-09-16 00:30:26.570 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PortfolioApi.Web.Controllers.HomeController (PortfolioApi.Web).
+2023-09-16 00:30:26.587 +05:30 [INF] Executing ViewResult, running view Index.
+2023-09-16 00:30:26.996 +05:30 [INF] Executed ViewResult - view Index executed in 411.1356ms.
+2023-09-16 00:30:27.005 +05:30 [INF] Executed action PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web) in 434.3191ms
+2023-09-16 00:30:27.007 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Controllers.HomeController.Index (PortfolioApi.Web)'
+2023-09-16 00:30:27.152 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.css - -
+2023-09-16 00:30:27.160 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.js - -
+2023-09-16 00:30:27.161 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:30:27.202 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.js - -
+2023-09-16 00:30:27.212 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 812.7901ms
+2023-09-16 00:30:27.236 +05:30 [INF] The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+2023-09-16 00:30:27.236 +05:30 [INF] The file /lib/jquery/dist/jquery.js was not modified
+2023-09-16 00:30:27.236 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 74.9009ms
+2023-09-16 00:30:27.237 +05:30 [INF] The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+2023-09-16 00:30:27.239 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.js - - - 304 - application/javascript 80.1186ms
+2023-09-16 00:30:27.239 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.js - - - 304 - application/javascript 37.1176ms
+2023-09-16 00:30:27.239 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.css - - - 304 - text/css 87.1010ms
+2023-09-16 00:30:27.265 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:30:27.321 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.7740ms
+2023-09-16 00:30:45.032 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 00:30:45.137 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 105.1308ms
+2023-09-16 00:30:45.186 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:30:45.186 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:30:45.190 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 3.3297ms
+2023-09-16 00:30:45.206 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.5839ms
+2023-09-16 00:30:45.643 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 00:30:45.823 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 180.0733ms
+2023-09-16 00:33:06.197 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:33:06.410 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-09-16 00:33:06.508 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:33:06.852 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-09-16 00:33:06.948 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 00:33:06.948 +05:30 [INF] Hosting environment: Development
+2023-09-16 00:33:06.948 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 00:33:06.983 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-09-16 00:33:07.100 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 00:33:07.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 404 - - 162.3328ms
+2023-09-16 00:39:37.426 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 00:39:38.969 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:39:39.134 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-09-16 00:39:39.171 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.2' with options: None
+2023-09-16 00:39:39.527 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-09-16 00:39:39.667 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 00:39:39.669 +05:30 [INF] Hosting environment: Development
+2023-09-16 00:39:39.677 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 00:39:39.712 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 00:39:39.792 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 00:39:40.091 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 00:39:40.096 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 386.8979ms
+2023-09-16 00:39:40.097 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 6.5321ms
+2023-09-16 00:39:40.154 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 00:39:40.177 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.8714ms
+2023-09-16 00:39:40.401 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 00:39:40.598 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 196.7880ms
+2023-09-16 00:52:32.895 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 00:52:50.443 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 00:53:09.044 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 00:53:10.227 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 00:53:10.252 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-09-16 00:53:10.255 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 00:53:10.357 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-09-16 00:53:10.359 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 00:53:10.360 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-09-16 00:53:10.369 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-09-16 00:53:10.384 +05:30 [INF] Applying migration '20230915192250_InitialMigration'.
+2023-09-16 00:53:10.445 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Projects] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Priority] int NOT NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_Projects] PRIMARY KEY ([Id])
+);
+2023-09-16 00:53:10.449 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(max) NULL,
+    [LasttName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Contact] nvarchar(max) NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Address] nvarchar(max) NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-09-16 00:53:10.451 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ToDoItems] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [IsDone] bit NOT NULL,
+    [ProjectId] int NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_ToDoItems] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ToDoItems_Projects_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [Projects] ([Id])
+);
+2023-09-16 00:53:10.455 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ToDoItems_ProjectId] ON [ToDoItems] ([ProjectId]);
+2023-09-16 00:53:10.460 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230915192250_InitialMigration', N'6.0.2');
+2023-09-16 01:10:58.800 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:11:09.478 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:11:09.875 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 01:11:09.900 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-09-16 01:11:09.903 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 01:11:09.904 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-09-16 01:11:09.918 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-09-16 01:11:09.932 +05:30 [INF] Applying migration '20230915194058_AddMultipleTables'.
+2023-09-16 01:11:09.997 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Experience] (
+    [Id] int NOT NULL IDENTITY,
+    [UsersId] int NOT NULL,
+    [ExperienceDetail] nvarchar(max) NULL,
+    [ExperienceIn] nvarchar(max) NULL,
+    [ToolUsed] nvarchar(max) NULL,
+    [StartDate] datetime2 NULL,
+    [EndDate] datetime2 NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_Experience] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Experience_Users_UsersId] FOREIGN KEY ([UsersId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-09-16 01:11:10.001 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Skills] (
+    [Id] int NOT NULL IDENTITY,
+    [UsersId] int NOT NULL,
+    [SkillName] nvarchar(max) NULL,
+    [SkillDescription] nvarchar(max) NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_Skills] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Skills_Users_UsersId] FOREIGN KEY ([UsersId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-09-16 01:11:10.003 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UsersProjects] (
+    [Id] int NOT NULL IDENTITY,
+    [UsersId] int NOT NULL,
+    [ProjectName] nvarchar(max) NULL,
+    [ProjectDescription] nvarchar(max) NULL,
+    [ProjectDurations] nvarchar(max) NULL,
+    [StartDate] datetime2 NULL,
+    [EndDate] datetime2 NULL,
+    [ModifiedBy] int NULL,
+    [CreatedBy] int NULL,
+    [CreatedDate] datetime2 NULL,
+    [ModifiedDate] datetime2 NULL,
+    CONSTRAINT [PK_UsersProjects] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_UsersProjects_Users_UsersId] FOREIGN KEY ([UsersId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-09-16 01:11:10.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Experience_UsersId] ON [Experience] ([UsersId]);
+2023-09-16 01:11:10.006 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Skills_UsersId] ON [Skills] ([UsersId]);
+2023-09-16 01:11:10.008 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UsersProjects_UsersId] ON [UsersProjects] ([UsersId]);
+2023-09-16 01:11:10.012 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230915194058_AddMultipleTables', N'6.0.2');
+2023-09-16 01:13:14.357 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 01:13:15.647 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:13:16.390 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 01:13:16.467 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-09-16 01:13:16.515 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:13:16.912 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-09-16 01:13:16.977 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedBy], [p].[CreatedDate], [p].[ModifiedBy], [p].[ModifiedDate], [p].[Name], [p].[Priority]
+FROM [Projects] AS [p]
+2023-09-16 01:13:16.985 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedBy], [t].[CreatedDate], [t].[Description], [t].[IsDone], [t].[ModifiedBy], [t].[ModifiedDate], [t].[ProjectId], [t].[Title]
+FROM [ToDoItems] AS [t]
+2023-09-16 01:13:17.388 +05:30 [INF] Executed DbCommand (70ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 100), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([CreatedBy], [CreatedDate], [ModifiedBy], [ModifiedDate], [Name], [Priority])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Projects]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:13:17.452 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ToDoItems] ([CreatedBy], [CreatedDate], [Description], [IsDone], [ModifiedBy], [ModifiedDate], [ProjectId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [Id]
+FROM [ToDoItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:13:17.456 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ToDoItems] ([CreatedBy], [CreatedDate], [Description], [IsDone], [ModifiedBy], [ModifiedDate], [ProjectId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [Id]
+FROM [ToDoItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:13:17.461 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ToDoItems] ([CreatedBy], [CreatedDate], [Description], [IsDone], [ModifiedBy], [ModifiedDate], [ProjectId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [Id]
+FROM [ToDoItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:13:17.630 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 01:13:17.631 +05:30 [INF] Hosting environment: Development
+2023-09-16 01:13:17.631 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 01:13:17.670 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:13:17.754 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 01:13:18.062 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 395.8071ms
+2023-09-16 01:13:18.081 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:13:18.089 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 7.2317ms
+2023-09-16 01:13:18.127 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:13:18.158 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.7020ms
+2023-09-16 01:13:18.340 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:13:18.505 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 165.6087ms
+2023-09-16 01:18:08.625 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:18:08.643 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 18.4655ms
+2023-09-16 01:18:08.658 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:18:08.664 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:18:08.668 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 2.3974ms
+2023-09-16 01:18:08.677 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.0096ms
+2023-09-16 01:18:08.854 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:18:08.864 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 10.4422ms
+2023-09-16 01:18:08.867 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - -
+2023-09-16 01:18:08.882 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-09-16 01:18:08.882 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/favicon-32x32.png - - - 200 628 image/png 14.9642ms
+2023-09-16 01:18:24.842 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:18:24.854 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 12.2634ms
+2023-09-16 01:18:24.869 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:18:24.870 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:18:24.876 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 6.8447ms
+2023-09-16 01:18:24.891 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 21.7516ms
+2023-09-16 01:18:25.009 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:18:25.019 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 10.2073ms
+2023-09-16 01:21:42.536 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Projects - -
+2023-09-16 01:21:42.550 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Endpoints.ProjectEndpoints.List.HandleAsync (PortfolioApi.Web)'
+2023-09-16 01:21:42.578 +05:30 [INF] Route matched with {action = "Handle", controller = "List", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[PortfolioApi.Web.Endpoints.ProjectEndpoints.ProjectListResponse]] HandleAsync(System.Threading.CancellationToken) on controller PortfolioApi.Web.Endpoints.ProjectEndpoints.List (PortfolioApi.Web).
+2023-09-16 01:21:42.673 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:21:42.724 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedBy], [p].[CreatedDate], [p].[ModifiedBy], [p].[ModifiedDate], [p].[Name], [p].[Priority]
+FROM [Projects] AS [p]
+2023-09-16 01:21:42.767 +05:30 [INF] Executing OkObjectResult, writing value of type 'PortfolioApi.Web.Endpoints.ProjectEndpoints.ProjectListResponse'.
+2023-09-16 01:21:42.928 +05:30 [INF] Executed action PortfolioApi.Web.Endpoints.ProjectEndpoints.List.HandleAsync (PortfolioApi.Web) in 343.9334ms
+2023-09-16 01:21:42.931 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Endpoints.ProjectEndpoints.List.HandleAsync (PortfolioApi.Web)'
+2023-09-16 01:21:42.937 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Projects - - - 200 45 application/json;+charset=utf-8 401.3192ms
+2023-09-16 01:21:52.998 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Projects - -
+2023-09-16 01:21:52.999 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web)'
+2023-09-16 01:21:53.003 +05:30 [INF] Route matched with {action = "List", controller = "Projects", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] List() on controller PortfolioApi.Web.Api.ProjectsController (PortfolioApi.Web).
+2023-09-16 01:21:53.006 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:21:53.012 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CreatedBy], [p].[CreatedDate], [p].[ModifiedBy], [p].[ModifiedDate], [p].[Name], [p].[Priority]
+FROM [Projects] AS [p]
+2023-09-16 01:21:53.021 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioApi.Web.ApiModels.ProjectDTO, PortfolioApi.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-16 01:21:53.029 +05:30 [INF] Executed action PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web) in 25.5231ms
+2023-09-16 01:21:53.029 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.ProjectsController.List (PortfolioApi.Web)'
+2023-09-16 01:21:53.029 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Projects - - - 200 43 application/json;+charset=utf-8 31.3030ms
+2023-09-16 01:53:34.172 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 01:53:35.440 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:53:35.981 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 01:53:36.203 +05:30 [INF] Executed DbCommand (195ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-09-16 01:53:36.227 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:53:36.707 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-09-16 01:53:36.882 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 01:53:36.882 +05:30 [INF] Hosting environment: Development
+2023-09-16 01:53:36.883 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 01:53:36.924 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:53:37.011 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 01:53:37.477 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 556.0002ms
+2023-09-16 01:53:37.546 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:53:37.552 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 6.5671ms
+2023-09-16 01:53:37.560 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:53:37.595 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.4671ms
+2023-09-16 01:53:37.732 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:53:37.908 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 176.6157ms
+2023-09-16 01:54:32.731 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Users application/json-patch+json 171
+2023-09-16 01:54:32.763 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web)'
+2023-09-16 01:54:32.799 +05:30 [INF] Route matched with {action = "Post", controller = "Users", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Post(PortfolioApi.Web.ApiModels.UsersDto) on controller PortfolioApi.Web.Api.UsersController (PortfolioApi.Web).
+2023-09-16 01:54:47.670 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:54:48.040 +05:30 [INF] Executed DbCommand (109ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Address], [Contact], [CreatedBy], [CreatedDate], [Email], [FirstName], [LasttName], [ModifiedBy], [ModifiedDate], [Password])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:54:54.627 +05:30 [INF] Executing JsonResult, writing value of type 'System.String'.
+2023-09-16 01:54:54.641 +05:30 [INF] Executed action PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web) in 21836.7755ms
+2023-09-16 01:54:54.642 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web)'
+2023-09-16 01:54:54.647 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Users application/json-patch+json 171 - 200 - application/json;+charset=utf-8 21916.1850ms
+2023-09-16 01:56:21.867 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:56:21.892 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 25.0987ms
+2023-09-16 01:56:21.897 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:56:21.897 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:56:21.899 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 1.3239ms
+2023-09-16 01:56:21.911 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 13.6012ms
+2023-09-16 01:56:22.272 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:56:22.284 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.3058ms
+2023-09-16 01:56:35.876 +05:30 [INF] User profile is available. Using 'C:\Users\praveen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-16 01:56:36.995 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:56:37.476 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-09-16 01:56:37.550 +05:30 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-09-16 01:56:37.567 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:56:37.943 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-09-16 01:56:38.050 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-16 01:56:38.051 +05:30 [INF] Hosting environment: Development
+2023-09-16 01:56:38.051 +05:30 [INF] Content root path: D:\F\mine\ReactProject\GitFolder\ProfilerWEbAPi\PortfolioApi\src\PortfolioApi.Web\
+2023-09-16 01:56:38.079 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-09-16 01:56:38.142 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-09-16 01:56:38.435 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-09-16 01:56:38.445 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12002 application/javascript;+charset=utf-8 7.9748ms
+2023-09-16 01:56:38.446 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 370.9122ms
+2023-09-16 01:56:38.480 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-09-16 01:56:38.511 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.8906ms
+2023-09-16 01:56:38.579 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-09-16 01:56:38.749 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 170.1667ms
+2023-09-16 01:57:19.362 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Users application/json-patch+json 140
+2023-09-16 01:57:19.421 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web)'
+2023-09-16 01:57:19.455 +05:30 [INF] Route matched with {action = "Post", controller = "Users", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Post(PortfolioApi.Web.ApiModels.UsersDto) on controller PortfolioApi.Web.Api.UsersController (PortfolioApi.Web).
+2023-09-16 01:58:07.028 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:58:07.364 +05:30 [INF] Executed DbCommand (63ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Address], [Contact], [CreatedBy], [CreatedDate], [Email], [FirstName], [LasttName], [ModifiedBy], [ModifiedDate], [Password])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-09-16 01:58:07.498 +05:30 [INF] Executing JsonResult, writing value of type 'System.String'.
+2023-09-16 01:58:07.510 +05:30 [INF] Executed action PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web) in 48049.6169ms
+2023-09-16 01:58:07.511 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.UsersController.Post (PortfolioApi.Web)'
+2023-09-16 01:58:07.516 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Users application/json-patch+json 140 - 200 - application/json;+charset=utf-8 48157.0299ms
+2023-09-16 01:59:24.379 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Users - -
+2023-09-16 01:59:24.387 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web)'
+2023-09-16 01:59:24.392 +05:30 [INF] Route matched with {action = "Get", controller = "Users", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get() on controller PortfolioApi.Web.Api.UsersController (PortfolioApi.Web).
+2023-09-16 01:59:26.811 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 01:59:26.996 +05:30 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Address], [u].[Contact], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[LasttName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[Password]
+FROM [Users] AS [u]
+2023-09-16 01:59:31.155 +05:30 [INF] Executing JsonResult, writing value of type 'System.String'.
+2023-09-16 01:59:31.157 +05:30 [INF] Executed action PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web) in 6764.3145ms
+2023-09-16 01:59:31.157 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web)'
+2023-09-16 01:59:31.157 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Users - - - 200 - application/json;+charset=utf-8 6778.3429ms
+2023-09-16 02:05:40.909 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/Users - -
+2023-09-16 02:05:40.911 +05:30 [INF] Executing endpoint 'PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web)'
+2023-09-16 02:05:40.915 +05:30 [INF] Route matched with {action = "Get", controller = "Users", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] Get() on controller PortfolioApi.Web.Api.UsersController (PortfolioApi.Web).
+2023-09-16 02:05:43.710 +05:30 [INF] Entity Framework Core 6.0.2 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.2' with options: None
+2023-09-16 02:05:43.838 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Address], [u].[Contact], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[LasttName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[Password]
+FROM [Users] AS [u]
+2023-09-16 02:05:43.847 +05:30 [INF] Executing JsonResult, writing value of type 'System.String'.
+2023-09-16 02:05:43.874 +05:30 [INF] Executed action PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web) in 2958.5792ms
+2023-09-16 02:05:43.874 +05:30 [INF] Executed endpoint 'PortfolioApi.Web.Api.UsersController.Get (PortfolioApi.Web)'
+2023-09-16 02:05:43.875 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/Users - - - 200 - application/json;+charset=utf-8 2966.2995ms
