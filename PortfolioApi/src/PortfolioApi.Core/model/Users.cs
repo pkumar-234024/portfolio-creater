@@ -9,7 +9,7 @@ public class Users : BaseEntity, IAggregateRoot
   
   public string? FirstName { get; set; }
 
-  public string? LasttName { get; set; }
+  public string? LastName { get; set; }
 
   public string Email { get; set; } = "sample@gmail.com";
 
@@ -24,4 +24,6 @@ public class Users : BaseEntity, IAggregateRoot
   public virtual ICollection<Skills>? GetSkills { get; } = null;
 
   public virtual ICollection<Experience>? Experience { get; } = null;
+
+  public virtual ICollection<About>? About { get; } = null;
 }

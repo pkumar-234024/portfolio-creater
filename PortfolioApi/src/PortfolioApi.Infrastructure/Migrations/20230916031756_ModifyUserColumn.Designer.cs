@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PortfolioApi.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using PortfolioApi.Infrastructure.Data;
 namespace PortfolioApi.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230916031756_ModifyUserColumn")]
+    partial class ModifyUserColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,42 +23,6 @@ namespace PortfolioApi.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("PortfolioApi.Core.model.About", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("AboutMe")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ModifiedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("About");
-                });
 
             modelBuilder.Entity("PortfolioApi.Core.model.Experience", b =>
                 {
@@ -303,15 +269,6 @@ namespace PortfolioApi.Infrastructure.Migrations
                     b.ToTable("ToDoItems");
                 });
 
-            modelBuilder.Entity("PortfolioApi.Core.model.About", b =>
-                {
-                    b.HasOne("PortfolioApi.Core.model.Users", null)
-                        .WithMany("About")
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("PortfolioApi.Core.model.Experience", b =>
                 {
                     b.HasOne("PortfolioApi.Core.model.Users", null)
@@ -348,8 +305,6 @@ namespace PortfolioApi.Infrastructure.Migrations
 
             modelBuilder.Entity("PortfolioApi.Core.model.Users", b =>
                 {
-                    b.Navigation("About");
-
                     b.Navigation("Experience");
 
                     b.Navigation("GetSkills");

@@ -24,6 +24,10 @@ public class AppDbContext : DbContext
   public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
   public DbSet<Project> Projects => Set<Project>();
   public DbSet<Users> Users => Set<Users>();
+  public DbSet<About> About => Set<About>();
+  public DbSet<Skills> Skills => Set<Skills>();
+  public DbSet<Experience> Experience => Set<Experience>();
+  public DbSet<UsersProjects> UsersProjects => Set<UsersProjects>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

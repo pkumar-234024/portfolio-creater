@@ -6,9 +6,9 @@ namespace PortfolioApi.Core.model;
 public class About : BaseEntity, IAggregateRoot
 {
   [ForeignKey("Users")]
-  public int UserId { get; set; }
+  public virtual int UsersId { get; set; }
 
-  public string? AboutUsers { get; set; }
+  public string? AboutMe { get; set; }
 
   public string? Description { get; set;}
 }
