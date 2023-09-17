@@ -4,7 +4,7 @@ using PortfolioApi.SharedKernel.Interfaces;
 
 namespace PortfolioApi.Core.model;
 
-public class Users : BaseEntity, IAggregateRoot
+public partial class Users : BaseEntity, IAggregateRoot
 {
   
   public string? FirstName { get; set; }

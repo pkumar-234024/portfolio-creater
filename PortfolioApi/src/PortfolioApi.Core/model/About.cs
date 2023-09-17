@@ -3,7 +3,7 @@ using PortfolioApi.SharedKernel;
 using PortfolioApi.SharedKernel.Interfaces;
 
 namespace PortfolioApi.Core.model;
-public class About : BaseEntity, IAggregateRoot
+public partial class About : BaseEntity, IAggregateRoot
 {
   [ForeignKey("Users")]
   public virtual int UsersId { get; set; }

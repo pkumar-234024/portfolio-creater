@@ -37,3 +37,4 @@ yarn-error.log*
 /PortfolioApi/tests/PortfolioApi.UnitTests/bin
 /PortfolioApi/tests/PortfolioApi.UnitTests/obj
 /PortfolioApi/.vs
+/PortfolioApi/src/PortfolioApi.Web/logs

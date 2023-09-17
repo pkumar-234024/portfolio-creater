@@ -8,7 +8,7 @@ using PortfolioApi.SharedKernel;
 using PortfolioApi.SharedKernel.Interfaces;
 
 namespace PortfolioApi.Core.model;
-public class UsersProjects : BaseEntity, IAggregateRoot
+public partial class UsersProjects : BaseEntity, IAggregateRoot
 {
 
   [ForeignKey("Users")]
